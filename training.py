@@ -1,7 +1,7 @@
 #powershell Start-Process powershell -Verb runAs
-import random
-import pickle
-import json
+import random #picking random response
+import pickle #used for converting python objects to byte code
+import json 
 
 import numpy as np
 
@@ -33,7 +33,12 @@ for intent in intents['intents']:
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
 
-print(documents)
+lemmatized_words = []
+for word in words:
+    if word not in ignore_letters:
+        lemmatized_words.append(lemmatizer.lemmatize(word))
+
+words = lemmatized_words
 
 
 
